@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Mode</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:#2b0d0d;
+}
+
+.pomodoro-section{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:8px 16px;
+}
+</style>
+</head>
+
+<body>
+
+<button class="back-btn" onclick="window.location.href='index.html'">
+رجوع
+</button>
+
+<section class="pomodoro-section">
+  <div class="pomodoro-box">
+
+    <div class="inputs">
+      <div>
+        <label>دقيقة شغل</label>
+        <input type="number" id="workInput" value="45">
+      </div>
+
+      <div>
+        <label>دقيقة راحة</label>
+        <input type="number" id="restInput" value="15">
+      </div>
+
+      <div>
+        <label>عدد الدورات</label>
+        <input type="number" id="cycleCount" value="4">
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="start-btn" onclick="startPomodoro()">ابدأ</button>
+      <button class="stop-btn" onclick="stopPomodoro()">إيقاف</button>
+    </div>
+
+    <h2 id="pomodoroDisplay">45:00</h2>
+    <p id="cycleInfo"></p>
+
+  </div>
+</section>
+
+<audio id="bellSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>

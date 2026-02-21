@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Task List</title>
+
+  <link rel="icon" href="https://img.icons8.com/?size=100&id=spI43Cg8MTCV&format=png&color=FA5252" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- font google -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Qahiri&family=Rakkas&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>📋 Task List</h1>
+    <button id="logoutBtn" class="logout-btn">LOG OUT</button>
+  </header>
+
+  <!-- POMODORO -->
+  <section class="pomodoro-section">
+    <div class="pomodoro-box">
+
+      <div class="inputs">
+        <div>
+          <label>دقيقة شغل</label>
+          <input type="number" id="workInput" value="45">
+        </div>
+
+        <div>
+          <label>دقيقة راحة</label>
+          <input type="number" id="restInput" value="15">
+        </div>
+
+        <div>
+          <label>عدد الدورات</label>
+          <input type="number" id="cycleCount" value="4">
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="start-btn" onclick="startPomodoro()">ابدأ</button>
+        <button class="stop-btn" onclick="stopPomodoro()">إيقاف</button>
+      </div>
+
+      <h2 id="pomodoroDisplay">45:00</h2>
+      <p id="cycleInfo"></p>
+
+    </div>
+  </section>
+
+  <!-- DAILY STATS -->
+  <section>
+    <div class="stats-box" id="statsBox"></div>
+  </section>
+
+  <!-- LISTS -->
+  <section>
+    <div class="add-list-box">
+      <input type="text" id="listName" placeholder="اسم القائمة">
+      <button id="addListBtn">إضافة قائمة</button>
+    </div>
+
+    <div class="lists-container" id="listsContainer"></div>
+  </section>
+
+  <!-- DAILY PROGRESS -->
+  <section class="daily-progress">
+    <h2>Today Achievements</h2>
+
+    <div class="progress-info">
+      <span id="progressPercent">0%</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </section>
+
+  <!-- ADVANCED SECTION -->
+  <section class="advanced-section">
+    <h2>📊 لوحة التحكم المتقدمة</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>📈 إنجازات الأسبوع</h3>
+        <canvas id="weekChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>🏆 النقاط والمستوى</h3>
+        <div id="rewardBox"></div>
+      </div>
+
+      <div class="card">
+        <h3>🔥 سجل الإنجاز</h3>
+        <div id="achievementLog"></div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-box">
+    <h2 style="padding: 30px;">LOG IN</h2>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button id="loginBtn">LOG</button>
+  </div>
+</div><button class="focus-btn" onclick="window.location.href='focus.html'">
+FOCUS MODE 🔒
+</button>
+
+<audio id="bellSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+/* ================== RESET ================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo", sans-serif;
+}
+
+:root {
+  --primary: #290d0b;          /* اللون الأساسي */
+  --primary-light: #4b1f1a;    /* فاتح شوية للـ hover */
+  --primary-dark: #1a0706;     /* غامق للـ active */
+  
+  --bg: #321515;               /* خلفية الموقع الداكنة */
+  --surface: #1f0d0d;          /* السطوح الداكنة */
+  --surface-soft: #331f1c;     /* سطح ناعم للفواصل */
+  
+  --text: #e6d8d2;             /* نص فاتح */
+  --text-soft: #c8b4ae;        /* نص أقل سطوعًا */
+  --white: #ffffff;
+  
+  --button-primary: #1e3a5f;   /* أزرار الـ Add */
+  --button-danger: #9e1d1a;    /* أزرار الـ Delete */
+  
+  --danger: #b42318;
+  --success: #2f8f46;
+  --warning: #d89b0d;
+  
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  padding: 28px 14px;
+  line-height: 1.6;
+}
+
+.title {
+  color: var(--primary);
+}
+
+button {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background: var(--primary-dark);
+  transform: scale(0.98);
+}
+
+/* ================== CONTAINER ================== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ================== HEADER ================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 16px;
+}
+
+.header h1 {
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.logout-btn {
+  background: var(--primary-dark);
+}
+
+/* ================== SECTION SPACING ================== */
+section {
+  margin-bottom: 34px;
+}
+
+/* ================== CARD BASE ================== */
+.card,
+.pomodoro-box,
+.add-list-box,
+.daily-progress,
+.stats-box,
+.advanced-section,
+.list {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ================== POMODORO ================== */
+.pomodoro-box {
+  padding: 25px;
+  text-align: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inputs div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputs label {
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.inputs input {
+  width: 90px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d7c1b1;
+  text-align: center;
+  color: black;
+  background: #fff;
+}
+
+.inputs input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(106, 42, 36, 0.12);
+}
+
+.buttons button {
+  padding: 9px 16px;
+  margin: 5px;
+}
+
+.start-btn {
+  background: var(--success);
+}
+
+.stop-btn {
+  background: var(--danger);
+}
+
+#pomodoroDisplay {
+  font-size: clamp(32px, 4vw, 44px);
+  margin-top: 14px;
+  color: white;
+  font-weight: 700;
+}
+
+#cycleInfo {
+  margin-top: 8px;
+  color: var(--text-soft);
+}
+
+/* ================== STATS ================== */
+.stats-box {
+  padding: 20px;
+}
+
+/* ================== ADD LIST ================== */
+.add-list-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 12px;
+}
+
+.add-list-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 9px;
+  border: 1px solid #d7c1b1;
+  color: black;
+}
+
+.add-list-box input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+}
+
+/* ================== LISTS GRID ================== */
+.lists-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* ================== SINGLE LIST ================== */
+.list {
+  padding: 15px;
+  transition: 0.25s;
+}
+
+.list:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.list-header h3 {
+  color: white;
+}
+
+.list-header button {
+  padding: 6px 9px;
+  border-radius: 8px;
+}
+
+.add-task {
+  background: var(--primary-light);
+}
+
+.delete-list {
+  background: var(--danger);
+}
+/* ================= Tasks ================= */
+.task-input {
+  width: 100%;
+  margin: 12px 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #111827;
+  color: white;
+}
+
+.tasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  background: #111827;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  animation: fadeUp 0.3s ease;
+  transition: 0.25s;
+}
+
+.task:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= Done ================= */
+.task.done {
+  opacity: 0.5;
+  animation: donePulse 0.4s ease;
+  background: #571d1d;
+}
+
+.task.done .task-text {
+  text-decoration: line-through;
+}
+
+/* ================= Buttons ================= */
+.task-actions button {
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.done-btn {
+  background: var(--success);
+}
+
+.edit {
+  background: var(--warning);
+  color: #1f170f;
+}
+
+.remove {
+  background: var(--danger);
+}
+
+/* ================== DAILY PROGRESS ================== */
+.daily-progress {
+  padding: 20px;
+  text-align: center;
+}
+
+.progress-info {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.progress-bar {
+  height: 18px;
+  background: #ebded3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  transition: width 0.5s ease;
+}
+
+/* ================== ADVANCED SECTION ================== */
+.advanced-section {
+  padding: 32px 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 18px;
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.focus-btn {
+  display: block;
+  margin: 28px auto 0;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #111827;
+}
+.focus-btn:hover {
+  background: #0c1424;
+  transform: scale(1.05);
+}
+
+
+/* ================= Login ================= */
+#loginOverlay {
+  position: fixed;
+  inset: 0;
+  background: url(./2.jpeg) no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-box {
+  background: #351919;
+  padding: 25px;
+  border-radius: 15px;
+  width: 280px;
+  text-align: center;
+  animation: scaleIn 0.4s ease;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.login-box button {
+  width: 100%;
+  background: #84453b;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-box button:hover {
+  background: #6d362f;
+  transform: scale(1.05);
+}
+
+/* ================== FOCUS MODE ================== */
+body.focus-mode {
+  background: #f1e3d7;
+}
+
+body.focus-mode .container {
+  filter: saturate(0.9);
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-list-box {
+    flex-direction: column;
+  }
+
+  .inputs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .task-actions {
+    align-self: flex-end;
+  }
+}
