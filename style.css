@@ -1,3 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+}
 /* ================== RESET ================== */
 * {
   box-sizing: border-box;
@@ -440,4 +447,70 @@ body.focus-mode .container {
   .task-actions {
     align-self: flex-end;
   }
+}
+
+/* ================== MOBILE IMPROVED ================== */
+@media (max-width: 600px) {
+
+  body {
+    padding: 18px 10px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .pomodoro-box,
+  .stats-box,
+  .daily-progress,
+  .advanced-section,
+  .list {
+    padding: 15px;
+  }
+
+  .inputs input {
+    width: 100%;
+  }
+
+  .add-list-box input {
+    width: 100%;
+  }
+
+  .lists-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #pomodoroDisplay {
+    font-size: 30px;
+  }
+
+  .progress-info {
+    font-size: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .buttons button {
+    width: 100%;
+    margin: 6px 0;
+  }
+
+  .focus-btn {
+    width: 100%;
+  }
+
+  .login-box {
+    width: 90%;
+  }
+
 }
