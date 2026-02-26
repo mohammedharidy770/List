@@ -233,6 +233,7 @@ section {
 .list-header button {
   padding: 6px 9px;
   border-radius: 8px;
+  margin-top: 4px;
 }
 
 .add-task {
@@ -448,7 +449,30 @@ body.focus-mode .container {
     align-self: flex-end;
   }
 }
+@media (max-width: 768px) {
 
+  .task {
+    flex-direction: row;        /* تخلي المحتوى أفقي */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .task-actions {
+    display: flex;
+    flex-direction: row;        /* الأزرار جنب بعض */
+    gap: 6px;
+  }
+
+  .task-actions button {
+    width: 38px;                /* حجم ثابت */
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
 /* ================== MOBILE IMPROVED ================== */
 @media (max-width: 600px) {
 
